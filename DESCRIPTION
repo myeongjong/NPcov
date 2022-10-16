@@ -1,16 +1,16 @@
 Package: NPcov
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Research Package for positive-definite nonparametric regression with application to covariance function estimation
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person(given = "Myeongjong", family = "Kang", role = c("aut", "cre"), email = "kmj.stat@gmail.com")
+Description: This is so far a private research R package for implementing a positive-definite nonparametric regression method
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
 LinkingTo: 
     Rcpp
 Imports: 
+    Bessel,
+    RandomFieldsUtils,
     Rcpp

@@ -2,6 +2,12 @@
 
 export(IDEA)
 export(eval_sse)
+export(ftn_exponential)
+export(ftn_linear)
+export(ftn_power)
+export(ftn_rational_quadratic)
+export(ftn_spherical)
+export(ftn_wave)
 export(krnl)
 export(ksreflect)
 export(rkrl)

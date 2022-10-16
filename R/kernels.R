@@ -71,17 +71,17 @@ krnl <- function(x, h, data, kernel = "epan", method = "reflection")
 
 .kernel_uniform <- function(x, h, data)
 {
-  lapply(x, function(x) data.frame(pt=data) %>% mutate(value = ifelse(x-h <= pt & pt <= x+h, 0.5, 0)) %>% select(value) %>% colSums()) %>% unlist() %>% unname()
+  unlist(unname( lapply(x, function(x) colSums( dplyr::select(dplyr::mutate(data.frame(pt=data), value = ifelse(x-h <= pt & pt <= x+h, 0.5, 0)), value) )) ))
 }
 
 .kernel_gaussian <- function(x, h, data)
 {
-  lapply(x, function(x) data.frame(pt=data) %>% mutate(value = dnorm((x-pt)/h)) %>% select(value) %>% colSums()) %>% unlist() %>% unname()
+  unlist(unname( lapply(x, function(x) colSums( dplyr::select(dplyr::mutate(data.frame(pt=data), value = dnorm((x-pt)/h)), value) )) ))
 }
 
 .kernel_epanechnikov <- function(x, h, data)
 {
-  lapply(x, function(x) data.frame(pt=data) %>% mutate(value = ifelse(x-h <= pt & pt <= x+h, 0.75 * (1- ((x-pt)/h)^2), 0)) %>% select(value) %>% colSums()) %>% unlist() %>% unname()
+  unlist(unname( lapply(x, function(x) colSums( dplyr::select(dplyr::mutate(data.frame(pt=data), value = ifelse(x-h <= pt & pt <= x+h, 0.75 * (1- ((x-pt)/h)^2), 0)), value) )) ))
 }
 
 ###########################################################################
@@ -115,7 +115,7 @@ krnl <- function(x, h, data, kernel = "epan", method = "reflection")
 
 .kernEst_reflection <- function(x, h, data, kernel = "epan")
 {
-  adj_data  <- .reflection(data) %>% unlist()
+  adj_data  <- unlist(.reflection(data))
 
   if(kernel == "epan"){
 

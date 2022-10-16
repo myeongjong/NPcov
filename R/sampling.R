@@ -30,11 +30,11 @@
 #' h = 5
 #'
 #' par(mfrow = c(1, 3))
-#' hist(rkrl(n, data, h, "epan", "reflection"), main = "Epanechnikov")
-#' hist(rkrl(n, data, h, "gaussian", "reflection"), main = "Gaussian")
-#' hist(rkrl(n, data, h, "uniform", "reflection"), main = "Uniform")
+#' hist(rkrnl(n, data, h, "epan", "reflection"), main = "Epanechnikov")
+#' hist(rkrnl(n, data, h, "gaussian", "reflection"), main = "Gaussian")
+#' hist(rkrnl(n, data, h, "uniform", "reflection"), main = "Uniform")
 #' par(mfrow = c(1, 1))
-rkrl <- function(n, data, h, kernel = "epan", method = "reflection")
+rkrnl <- function(n, data, h, kernel = "epan", method = "reflection")
 {
   if(kernel == "epan") {
 

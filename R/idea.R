@@ -41,9 +41,9 @@
   n           <- ncol(storage)
   m           <- nrow(storage)
   num_sample  <- as.integer(tau * n)
-  data        <- storage %>% unlist() %>% na.omit() %>% as.numeric()
+  data        <- as.numeric(na.omit(unlist(storage)))
 
-  storage           <- cbind(storage[,1:num_sample], matrix(rkrl((n - num_sample) * m, data, h, kernel, method), m, n-num_sample))
+  storage           <- cbind(storage[,1:num_sample], matrix(rkrnl((n - num_sample) * m, data, h, kernel, method), m, n-num_sample))
   colnames(storage) <- paste0("Z", 1:n)
 
   return( storage )
@@ -51,8 +51,8 @@
 
 .termination <- function(storage_old, storage, h, kernel = "epan", method = "reflection") {
 
-  data_old <- storage_old %>% unlist() %>% na.omit()
-  data_new <- storage     %>% unlist() %>% na.omit()
+  data_old <- na.omit(unlist(storage_old))
+  data_new <- na.omit(unlist(storage))
 
   abs(sum( log( krnl(data_old, h, data_old, kernel, method) / krnl(data_new, h, data_old, kernel, method) ) )) / length(data_old)
 

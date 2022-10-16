@@ -12,6 +12,7 @@ LinkingTo:
     Rcpp
 Imports: 
     Bessel,
+    dplyr,
     ks,
     RandomFieldsUtils,
     Rcpp

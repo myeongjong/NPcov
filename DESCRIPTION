@@ -12,5 +12,6 @@ LinkingTo:
     Rcpp
 Imports: 
     Bessel,
+    ks,
     RandomFieldsUtils,
     Rcpp

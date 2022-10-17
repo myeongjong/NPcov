@@ -1,8 +1,156 @@
 [
     {
-        "file": "C:/Users/kmjst/Desktop/NPcov/src/code.cpp",
-        "file_last_write": 1665808217.0,
+        "file": "C:/Users/kmjst/Desktop/NPcov/src/bessel.cpp",
+        "file_last_write": 1665990212.0,
+        "definitions": [
+            {
+                "usr": "c:@F@besselJ#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "besselJ(double, double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/bessel.cpp",
+                "line": 3,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@besselJ_modified_C#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "besselJ_modified_C(const double, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/bessel.cpp",
+                "line": 8,
+                "column": 8,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/kmjst/Desktop/NPcov/src/integration.cpp",
+        "file_last_write": 1665991663.0,
+        "definitions": [
+            {
+                "usr": "c:@S@integrand",
+                "kind": 2,
+                "parent_name": "",
+                "name": "integrand",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/integration.cpp",
+                "line": 7,
+                "column": 7,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@integrand@F@operator()#&1d#1",
+                "kind": 7,
+                "parent_name": "integrand",
+                "name": "operator(const double &)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/integration.cpp",
+                "line": 16,
+                "column": 10,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@integrate_list#&1d#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "integrate_list(const double &, const double &, const double &)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/integration.cpp",
+                "line": 22,
+                "column": 12,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@besselJ_generalized_C#&1d#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "besselJ_generalized_C(const double &, const double &, const double &)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/integration.cpp",
+                "line": 38,
+                "column": 8,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+        "file_last_write": 1665992281.0,
+        "definitions": [
+            {
+                "usr": "c:@F@lmda0_C#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "lmda0_C(const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 3,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@lmda1_C#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "lmda1_C(const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 10,
+                "column": 8,
+                "hidden": false
+            }
+        ],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/kmjst/Desktop/NPcov/src/rcpplist.h",
+        "file_last_write": 1665991336.0,
         "definitions": [],
+        "hidden": false
+    },
+    {
+        "file": "C:/Users/kmjst/Desktop/NPcov/src/struve.cpp",
+        "file_last_write": 1665991034.0,
+        "definitions": [
+            {
+                "usr": "c:@F@struve_intern#d#d#d#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "struve_intern(double, double, double, bool)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/struve.cpp",
+                "line": 33,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@struveH#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "struveH(const double, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/struve.cpp",
+                "line": 71,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@struveL#1d#1d#1b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "struveL(const double, const double, const bool)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/struve.cpp",
+                "line": 76,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@struveH_modified_C#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "struveH_modified_C(const double, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/struve.cpp",
+                "line": 81,
+                "column": 8,
+                "hidden": false
+            }
+        ],
         "hidden": false
     }
 ]

@@ -75,7 +75,7 @@
     },
     {
         "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
-        "file_last_write": 1665992281.0,
+        "file_last_write": 1666038632.0,
         "definitions": [
             {
                 "usr": "c:@F@lmda0_C#1d#",
@@ -96,13 +96,113 @@
                 "line": 10,
                 "column": 8,
                 "hidden": false
+            },
+            {
+                "usr": "c:@F@est_2d_epan_refl_C#1d#1I#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "est_2d_epan_refl_C(const double, const Rcpp::NumericVector, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 17,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@est_2d_gaussian_refl_C#1d#1I#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "est_2d_gaussian_refl_C(const double, const Rcpp::NumericVector, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 28,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@est_2d_uniform_refl_C#1d#1I#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "est_2d_uniform_refl_C(const double, const Rcpp::NumericVector, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 39,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@est_infd_epan_refl_C#1d#1I#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "est_infd_epan_refl_C(const double, const Rcpp::NumericVector, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 50,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@est_infd_gaussian_refl_C#1d#1I#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "est_infd_gaussian_refl_C(const double, const Rcpp::NumericVector, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 61,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@est_infd_uniform_refl_C#1d#1I#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "est_infd_uniform_refl_C(const double, const Rcpp::NumericVector, const double)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 72,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@estimator_2d_reflection#1d#1I#1d#1I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "estimator_2d_reflection(const double, const Rcpp::NumericVector, const double, const int)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 83,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@estimator_infd_reflection#1d#1I#1d#1I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "estimator_infd_reflection(const double, const Rcpp::NumericVector, const double, const int)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 103,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@ksreflect_C#1d#1I#1d#1I#1I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "ksreflect_C(const double, const Rcpp::NumericVector, const double, const int, const int)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 124,
+                "column": 8,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@eval_sse_C#1I#1I#1I#1d#1I#1I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "eval_sse_C(const Rcpp::NumericMatrix, const Rcpp::NumericVector, const Rcpp::NumericVector, const double, const int, const int)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 141,
+                "column": 21,
+                "hidden": false
             }
         ],
         "hidden": false
     },
     {
         "file": "C:/Users/kmjst/Desktop/NPcov/src/rcpplist.h",
-        "file_last_write": 1665991336.0,
+        "file_last_write": 1666031978.0,
         "definitions": [],
         "hidden": false
     },

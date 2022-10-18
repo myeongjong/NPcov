@@ -69,7 +69,7 @@ ksreflect <- function(r, data, h, kernel = "epan", shape = "general")
 .est_2d_epan_refl <- function(r, data, h)
 {
   value   <- 0
-  for(j in 1:length(data)) value <- value + (1-(data[j]/h)^2) * (.lmda1(r*(data[j]+h)) - .lmda1(r*(data[j]-h))) - ((r^2*(data[j]+h)^2 * .besselJ_modified(r*(data[j]+h), nu = 1) - .lmda0(r*(data[j]+h))) - (r^2*(data[j]-h)^2 * .besselJ_modified(r*(data[j]-h), nu = 1) - .lmda1(r*(data[j]-h)))) / (r * h)^2 + (2 * data[j] / r / h^2) * (r*(data[j]+h) * .besselJ_modified(r*(data[j]+h), nu = 1) - r*(data[j]-h) * .besselJ_modified(r*(data[j]-h), nu = 1))
+  for(j in 1:length(data)) value <- value + (1-(data[j]/h)^2) * (.lmda1(r*(data[j]+h)) - .lmda1(r*(data[j]-h))) - ((r^2*(data[j]+h)^2 * .besselJ_modified(r*(data[j]+h), nu = 1) - .lmda0(r*(data[j]+h))) - (r^2*(data[j]-h)^2 * .besselJ_modified(r*(data[j]-h), nu = 1) - .lmda0(r*(data[j]-h)))) / (r * h)^2 + (2 * data[j] / r / h^2) * (r*(data[j]+h) * .besselJ_modified(r*(data[j]+h), nu = 1) - r*(data[j]-h) * .besselJ_modified(r*(data[j]-h), nu = 1))
 
   value   <- value * 3 / 4 / length(data) / h / r
   return( value )

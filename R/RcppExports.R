@@ -32,3 +32,19 @@ eval_sse_C <- function(storage, x, y, h, kernel, shape) {
     .Call(`_NPcov_eval_sse_C`, storage, x, y, h, kernel, shape)
 }
 
+#' @name evalEach_sse_C
+#'
+#' @title Computing SSE of an estimator obtained by the IDEA algorithm for each pseudo data (C++ version)
+#'
+#' @param data Pseudo data
+#' @param x Input (e.g., distance)
+#' @param y Output (e.g., correlation value)
+#' @param h Bandwidth
+#' @param kernel Type of kernel: epan, gaussian, or uniform
+#' @param shape Shape of estimator: general or monotone
+#'
+#' @return SSE
+evalEach_sse_C <- function(data, x, y, h, kernel, shape) {
+    .Call(`_NPcov_evalEach_sse_C`, data, x, y, h, kernel, shape)
+}
+

@@ -128,7 +128,7 @@ IDEA <- function(x, y, h, n, m, tau, kernel = "epan", shape = "general", method 
   history_KL              <- rep(NA, max_iter)
 
   storage                 <- .initialization(n, m, dist_init)
-  obj_value               <- eval_sse(storage, x, y, h, kernel, shape)
+  obj_value               <- eval_sse_C(as.matrix(storage), x, y, h, kernel, shape) # eval_sse(storage, x, y, h, kernel, shape)
 
   history_obj_min[1]      <- min(obj_value)
   history_obj_mean[1]     <- mean(obj_value)
@@ -141,7 +141,7 @@ IDEA <- function(x, y, h, n, m, tau, kernel = "epan", shape = "general", method 
 
     storage_old             <- storage
     storage                 <- .replacement(storage, tau, h, kernel, method)
-    obj_value               <- eval_sse(storage, x, y, h, kernel, shape)
+    obj_value               <- eval_sse_C(as.matrix(storage), x, y, h, kernel, shape) # eval_sse_C(storage, x, y, h, kernel, shape)
 
     history_obj_min[i+1]    <- min(obj_value)
     history_obj_mean[i+1]   <- mean(obj_value)

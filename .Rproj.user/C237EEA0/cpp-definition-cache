@@ -75,7 +75,7 @@
     },
     {
         "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
-        "file_last_write": 1666038632.0,
+        "file_last_write": 1666053502.0,
         "definitions": [
             {
                 "usr": "c:@F@lmda0_C#1d#",
@@ -183,7 +183,7 @@
                 "parent_name": "",
                 "name": "ksreflect_C(const double, const Rcpp::NumericVector, const double, const int, const int)",
                 "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
-                "line": 124,
+                "line": 135,
                 "column": 8,
                 "hidden": false
             },
@@ -193,8 +193,18 @@
                 "parent_name": "",
                 "name": "eval_sse_C(const Rcpp::NumericMatrix, const Rcpp::NumericVector, const Rcpp::NumericVector, const double, const int, const int)",
                 "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
-                "line": 141,
+                "line": 164,
                 "column": 21,
+                "hidden": false
+            },
+            {
+                "usr": "c:@F@evalEach_sse_C#1I#1I#1I#1d#1I#1I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "evalEach_sse_C(const Rcpp::NumericVector, const Rcpp::NumericVector, const Rcpp::NumericVector, const double, const int, const int)",
+                "file": "C:/Users/kmjst/Desktop/NPcov/src/ksreflect.cpp",
+                "line": 193,
+                "column": 8,
                 "hidden": false
             }
         ],

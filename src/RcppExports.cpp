@@ -42,10 +42,27 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// evalEach_sse_C
+double evalEach_sse_C(const Rcpp::NumericVector data, const Rcpp::NumericVector x, const Rcpp::NumericVector y, const double h, const std::string kernel, const std::string shape);
+RcppExport SEXP _NPcov_evalEach_sse_C(SEXP dataSEXP, SEXP xSEXP, SEXP ySEXP, SEXP hSEXP, SEXP kernelSEXP, SEXP shapeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type y(ySEXP);
+    Rcpp::traits::input_parameter< const double >::type h(hSEXP);
+    Rcpp::traits::input_parameter< const std::string >::type kernel(kernelSEXP);
+    Rcpp::traits::input_parameter< const std::string >::type shape(shapeSEXP);
+    rcpp_result_gen = Rcpp::wrap(evalEach_sse_C(data, x, y, h, kernel, shape));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_NPcov_ksreflect_C", (DL_FUNC) &_NPcov_ksreflect_C, 5},
     {"_NPcov_eval_sse_C", (DL_FUNC) &_NPcov_eval_sse_C, 6},
+    {"_NPcov_evalEach_sse_C", (DL_FUNC) &_NPcov_evalEach_sse_C, 6},
     {NULL, NULL, 0}
 };
 

@@ -14,8 +14,11 @@ LinkingTo:
     RcppNumerical
 Imports: 
     Bessel,
+    doParallel,
     dplyr,
+    foreach,
     ks,
+    parallel,
     RandomFieldsUtils,
     Rcpp,
     RcppNumerical

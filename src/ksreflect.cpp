@@ -19,7 +19,7 @@ double est_2d_epan_refl_C(const double r, const Rcpp::NumericVector data, const 
   double value = 0.0;
   for(unsigned int j = 0; j < data.length(); j++) {
 
-    value += (1-pow(data[j]/h, 2.0)) * (lmda1_C(r*(data[j]+h)) - lmda1_C(r*(data[j]-h))) - ((pow(r,2.0)*pow(data[j]+h, 2.0) * besselJ_modified_C(r*(data[j]+h), 1.0) - lmda0_C(r*(data[j]+h))) - (pow(r, 2.0)*pow(data[j]-h, 2.0) * besselJ_modified_C(r*(data[j]-h), 1.0) - lmda1_C(r*(data[j]-h)))) / pow(r * h, 2.0) + (2 * data[j] / r / pow(h, 2.0)) * (r*(data[j]+h) * besselJ_modified_C(r*(data[j]+h), 1.0) - r*(data[j]-h) * besselJ_modified_C(r*(data[j]-h), 1.0));
+    value += (1-pow(data[j]/h, 2.0)) * (lmda1_C(r*(data[j]+h)) - lmda1_C(r*(data[j]-h))) - ((pow(r,2.0)*pow(data[j]+h, 2.0) * besselJ_modified_C(r*(data[j]+h), 1.0) - lmda0_C(r*(data[j]+h))) - (pow(r, 2.0)*pow(data[j]-h, 2.0) * besselJ_modified_C(r*(data[j]-h), 1.0) - lmda0_C(r*(data[j]-h)))) / pow(r * h, 2.0) + (2 * data[j] / r / pow(h, 2.0)) * (r*(data[j]+h) * besselJ_modified_C(r*(data[j]+h), 1.0) - r*(data[j]-h) * besselJ_modified_C(r*(data[j]-h), 1.0));
   }
 
   return value * 3.0 / 4.0 / (double)data.length() / h / r;
@@ -172,6 +172,30 @@ Rcpp::NumericVector eval_sse_C(const Rcpp::NumericMatrix storage, const Rcpp::Nu
 
       obj_value[j] += pow(y[k] - ksreflect_C(x[k], tempvec, h, kernel, shape), 2.0);
     }
+  }
+
+  return obj_value;
+}
+
+//' @name evalEach_sse_C
+//'
+//' @title Computing SSE of an estimator obtained by the IDEA algorithm for each pseudo data (C++ version)
+//'
+//' @param data Pseudo data
+//' @param x Input (e.g., distance)
+//' @param y Output (e.g., correlation value)
+//' @param h Bandwidth
+//' @param kernel Type of kernel: epan, gaussian, or uniform
+//' @param shape Shape of estimator: general or monotone
+//'
+//' @return SSE
+// [[Rcpp::export]]
+double evalEach_sse_C(const Rcpp::NumericVector data, const Rcpp::NumericVector x, const Rcpp::NumericVector y, const double h, const std::string kernel, const std::string shape)
+{
+  double obj_value = 0.0;
+  for(unsigned int k = 0; k < x.length(); k++) {
+
+    obj_value += pow(y[k] - ksreflect_C(x[k], data, h, kernel, shape), 2.0);
   }
 
   return obj_value;

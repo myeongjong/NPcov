@@ -33,7 +33,39 @@
 #' @export
 #'
 #' @examples
-#' # No example
+#' \dontrun{
+#' x = seq(0.1, 10, by = 0.1)
+#' y = ftn_wave(x, 0, 1, 1)
+#' y = 1 - y
+#' y_err = y + rnorm(length(y), 0, 0.2)
+#'
+#' h = 0.08
+#' n = 50
+#' m = 10
+#' tau = 0.2
+#' eval = NULL
+#' kernel = "uniform"
+#' shape = "general"
+#' method = "reflection"
+#' dist_init = "exponential"
+#' min_iter = 20
+#' max_iter = 100
+#' tol = 1e-3
+#' check = 5
+#'
+#' ptm <- proc.time()
+#' result <- pdnr(x = x, y = y_err, h = h, n = n, m = m, tau = tau, eval = eval, kernel = kernel, shape = shape, method = method, dist_init = dist_init, min_iter = min_iter, max_iter = max_iter, tol = tol, check = check)
+#' ptm <- proc.time() - ptm # ~30s
+#'
+#' plot(x, y_err)
+#' lines(x, y, type="l", col="red")
+#' lines(result$eval, result$yhat)
+#'
+#' plot(na.omit(result$history_obj_max), type="l", ylim = c(0, 15))
+#' lines(na.omit(result$history_obj_mean))
+#' lines(na.omit(result$history_obj_max_sel))
+#' lines(na.omit(result$history_obj_min))
+#' }
 pdnr <- function(x, y, h, n, m, tau, eval = NULL, kernel = "epan", shape = "general", method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 400, tol = 1e-3, check = 5)
 {
   ### checkargs

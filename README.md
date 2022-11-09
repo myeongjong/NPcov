@@ -8,7 +8,7 @@ covariance function estimation
 ## Installation
 
     # install.packages("devtools")
-    devtools::install_github("NPcov")
+    devtools::install_github("myeongjong/NPcov")
 
 ## Example
 

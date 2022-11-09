@@ -22,7 +22,7 @@ Positive definite nonparametric regression with application to covariance functi
 
 ```{}
 # install.packages("devtools")
-devtools::install_github("NPcov")
+devtools::install_github("myeongjong/NPcov")
 ```
 
 ## Example

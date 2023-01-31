@@ -66,7 +66,7 @@ p1 <- ggplot() +
   geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25) +
   geom_line(data = visout_cwave, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
-  scale_color_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "#E41A1C", "Epanechnikov" = "#377EB8", "Uniform" = "#4DAF4A")) +
+  scale_color_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "#E41A1C", "Epanechnikov" = "#4DAF4A", "Uniform" = "#377EB8")) +
   scale_linetype_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "twodash", "Epanechnikov" = "dashed", "Uniform" = "dotted")) +
   theme_bw() + xlab(NULL) + ylab(NULL) +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))

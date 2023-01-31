@@ -141,7 +141,7 @@ visout1     <- data.frame(x = bestout$eval, y = bestout$yhat)
 p1          <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
   geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout1, aes(x = x, y = y), color = "#E41A1C", lty = "twodash", lwd = 1.2) +
+  geom_line(data = visout1, aes(x = x, y = y), color = "#4DAF4A", lty = "twodash", lwd = 1.2) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
@@ -192,7 +192,7 @@ visout1     <- data.frame(x = bestout$eval, y = bestout$yhat)
 p1          <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
   geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout1, aes(x = x, y = y), color = "#E41A1C", lty = "twodash", lwd = 1.2) +
+  geom_line(data = visout1, aes(x = x, y = y), color = "#4DAF4A", lty = "twodash", lwd = 1.2) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
@@ -243,7 +243,7 @@ visout1     <- data.frame(x = bestout$eval, y = bestout$yhat)
 p1          <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
   geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout1, aes(x = x, y = y), color = "#E41A1C", lty = "twodash", lwd = 1.2) +
+  geom_line(data = visout1, aes(x = x, y = y), color = "#4DAF4A", lty = "twodash", lwd = 1.2) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
@@ -294,7 +294,7 @@ visout1     <- data.frame(x = bestout$eval, y = bestout$yhat)
 p1          <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
   geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout1, aes(x = x, y = y), color = "#E41A1C", lty = "twodash", lwd = 1.2) +
+  geom_line(data = visout1, aes(x = x, y = y), color = "#4DAF4A", lty = "twodash", lwd = 1.2) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))

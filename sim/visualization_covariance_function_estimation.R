@@ -56,7 +56,7 @@ p3            <- ggplot() +
 p4            <- ggplot() +
   geom_point(data = data.frame(x = input_sexpo$x, y = input_sexpo$y_err), aes(x = x, y = y), color = "gray75") +
   geom_line(data = data.frame(x = input_sexpo$x, y = input_sexpo$y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = data.frame(x = fit_us_sexpo$eval, y = fit_us_sexpo$yhat * vhat_sexpo), aes(x = x, y = y), color = "#377EB8", lwd = 1.2, lty = "twodash", alpha = 0.75) +
+  geom_line(data = data.frame(x = fit_us_sexpo$eval, y = fit_us_sexpo$yhat * vhat_sexpo), aes(x = x, y = y), color = "#4DAF4A", lwd = 1.2, lty = "twodash", alpha = 0.75) +
   theme_bw() + xlab(NULL) + ylab(NULL) +
   geom_hline(yintercept = 0, linetype="solid", color = "black") +
   coord_cartesian(ylim = c(-0.8, 1.2) * vhat_sexpo)

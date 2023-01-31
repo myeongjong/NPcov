@@ -32,7 +32,7 @@ extract_covpts <- function(coords, data)
   }
 
   vhat        <- var(data) * (length(data)-1) / length(data)
-  y_err       <- vals[order(dvec)] / ( var(data) * (length(data)-1) / length(data) )
+  y_err       <- vals[order(dvec)] # / ( var(data) * (length(data)-1) / length(data) )
   x           <- dvec[order(dvec)]
 
   return( list(r = x, chat = y_err, vhat = vhat) )
@@ -48,29 +48,38 @@ simgrf_swave  <- grf(200, cov.pars = c(1, 1), xlims = c(0, 10/sqrt(2)), ylims = 
 output_swave  <- extract_covpts(simgrf_swave$coords, simgrf_swave$data)
 x             <- output_swave$r
 y_err         <- output_swave$chat
+vhat          <- output_swave$vhat
 y             <- 1 - ftn_wave(x, 0, 1, 1)
 input_swave   <- list(x = x, y = y, y_err = y_err)
 
-# ms      <- c(2, 3, 4, 5, 6)
-# hs      <- seq(0.01, 0.1, by = 0.01)
-# shape   <- "general"
-#
-# inputs        <- expand.grid(ms, hs) ; colnames(inputs) <- c("ms", "hs")
-# inputs$taus   <- rep(0.1, nrow(inputs))
-# inputs$ns     <- inputs$ms * 10
-# result_cv_us  <- cv_pdnr(x = x, y = y_err, hs = inputs$hs, ns = inputs$ns, ms = inputs$ms, taus = inputs$taus, expand = FALSE, eval = NULL, k = 5, kernel = "gaussian", shape = shape, method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5, ncores = NULL)
-# fit_us        <- pdnr(x = x, y = y_err, h = result_cv_us$input.best$h, n = result_cv_us$input.best$n, m = result_cv_us$input.best$m, tau = result_cv_us$input.best$tau, eval = NULL, kernel = "gaussian", shape = shape, method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5)
+###
 
 ptm1          <- proc.time()
-fit_us_swave  <- pdnr(x = x, y = y_err, h = 0.2, n = 50, m = 5, tau = 0.1, eval = NULL, kernel = "gaussian", shape = "general", method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5)
+for(i in 1:100) {
+
+  vhat_old      <- vhat
+  fit_us_swave  <- pdnr(x = x, y = y_err / vhat, h = 0.2, n = 50, m = 5, tau = 0.1, eval = NULL, kernel = "gaussian", shape = "general", method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5)
+
+  vgrid         <- seq(0.5, 1.5, by = 0.005)
+  msevec        <- c()
+  for(j in 1:length(vgrid)) msevec[j] <- mean((y_err - vgrid[j] * fit_us_swave$yhat)^2)
+
+  vhat          <- vgrid[which.min(msevec)]
+
+  if(abs(vhat_old - vhat) < 0.01) break
+}
 ptm1          <- proc.time() - ptm1
-ptm1 # 840.25
+i ; ptm1 # 2954.09
 
-plot(x, y_err * output_swave$vhat, col = "grey80", ylim = c(-0.5, 1))
+vhat_swave    <- vhat
+
+###
+
+plot(x, y_err, col = "grey80", ylim = c(-0.5, 1))
 lines(x, y, lwd = 2)
-lines(fit_us_swave$eval, fit_us_swave$yhat * output_swave$vhat, col = "firebrick2", lwd = 2)
+lines(fit_us_swave$eval, fit_us_swave$yhat * vhat_swave, col = "firebrick2", lwd = 2)
 
-# save(simgrf_swave, output_swave, fit_us_swave, input_swave, file = "out/simout_covariance_function_estimation.RData")
+# save(simgrf_swave, output_swave, fit_us_swave, vhat_swave, input_swave, file = "out/simout_covariance_function_estimation.RData")
 
 ###########################################################################
 ###
@@ -82,26 +91,35 @@ simgrf_sexpo  <- grf(200, cov.pars = c(1, 1), xlims = c(0, 10/sqrt(2)), ylims = 
 output_sexpo  <- extract_covpts(simgrf_sexpo$coords, simgrf_sexpo$data)
 x             <- output_sexpo$r
 y_err         <- output_sexpo$chat
+vhat          <- output_sexpo$vhat
 y             <- 1 - ftn_exponential(x, 0, 1, 1)
 input_sexpo   <- list(x = x, y = y, y_err = y_err)
 
-# ms      <- c(2, 3, 4, 5, 6)
-# hs      <- seq(0.01, 0.1, by = 0.01)
-# shape   <- "general"
-#
-# inputs        <- expand.grid(ms, hs) ; colnames(inputs) <- c("ms", "hs")
-# inputs$taus   <- rep(0.1, nrow(inputs))
-# inputs$ns     <- inputs$ms * 10
-# result_cv_us  <- cv_pdnr(x = x, y = y_err, hs = inputs$hs, ns = inputs$ns, ms = inputs$ms, taus = inputs$taus, expand = FALSE, eval = NULL, k = 5, kernel = "gaussian", shape = shape, method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5, ncores = NULL)
-# fit_us        <- pdnr(x = x, y = y_err, h = result_cv_us$input.best$h, n = result_cv_us$input.best$n, m = result_cv_us$input.best$m, tau = result_cv_us$input.best$tau, eval = NULL, kernel = "gaussian", shape = shape, method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5)
+###
 
 ptm2          <- proc.time()
-fit_us_sexpo  <- pdnr(x = x, y = y_err, h = 0.1, n = 100, m = 10, tau = 0.1, eval = NULL, kernel = "gaussian", shape = "monotone", method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5)
+for(i in 1:100) {
+
+  vhat_old      <- vhat
+  fit_us_sexpo  <- pdnr(x = x, y = y_err, h = 0.1, n = 100, m = 10, tau = 0.1, eval = NULL, kernel = "gaussian", shape = "monotone", method = "reflection", dist_init = "exponential", min_iter = 20, max_iter = 200, tol = 1e-3, check = 5)
+
+  vgrid         <- seq(0.5, 1.5, by = 0.005)
+  msevec        <- c()
+  for(j in 1:length(vgrid)) msevec[j] <- mean((y_err - vgrid[j] * fit_us_sexpo$yhat)^2)
+
+  vhat          <- vgrid[which.min(msevec)]
+
+  if(abs(vhat_old - vhat) < 0.01) break
+}
 ptm2          <- proc.time() - ptm2
-ptm2 # 88.99
+i ; ptm2 # 481.84
 
-plot(x, y_err * output_sexpo$vhat, col = "grey80", ylim = c(-0.5, 1))
+vhat_sexpo    <- vhat
+
+###
+
+plot(x, y_err, col = "grey80", ylim = c(-0.5, 1))
 lines(x, y, lwd = 2)
-lines(fit_us_sexpo$eval, fit_us_sexpo$yhat * output_sexpo$vhat, col = "firebrick2", lwd = 2)
+lines(fit_us_sexpo$eval, fit_us_sexpo$yhat * vhat_sexpo, col = "firebrick2", lwd = 2)
 
-save(simgrf_swave, output_swave, fit_us_swave, input_swave, simgrf_sexpo, output_sexpo, fit_us_sexpo, input_sexpo, file = "out/simout_covariance_function_estimation.RData")
+save(simgrf_swave, output_swave, fit_us_swave, vhat_swave, input_swave, simgrf_sexpo, output_sexpo, fit_us_sexpo, vhat_sexpo, input_sexpo, file = "out/simout_covariance_function_estimation.RData")

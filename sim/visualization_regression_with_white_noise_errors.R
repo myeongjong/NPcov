@@ -35,18 +35,22 @@ fit_us  <- result_wave_complex$history_fit[[idx]]$fit_us
 
 visout_cwave <- data.frame(type = c(rep("Local constant", length(as.numeric(t(fit_lc$eval)))),
                                     rep("Local linear", length(as.numeric(t(fit_ll$eval)))),
-                                    rep("Our isotropic", length(fit_us$eval))),
+                                    rep("Our isotropic", length(fit_us$eval)),
+                                    rep("Our monotone", length(fit_us$eval))),
                            x = c(as.numeric(t(fit_lc$eval)),
                                  as.numeric(t(fit_ll$eval)),
+                                 fit_us$eval,
                                  fit_us$eval),
-                           y = c(fit_lc$mean, fit_ll$mean, fit_us$yhat))
+                           y = c(fit_lc$mean, fit_ll$mean, fit_us$yhat, rep(NA, length(fit_us$eval))))
+
+visout_cwave$type <- factor(visout_cwave$type, levels = c("Our isotropic", "Our monotone", "Local constant", "Local linear"))
 
 p1 <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
-  geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout_cwave, aes(x = x, y = y, col = type, lty = type), lwd = 1.2) +
-  scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "#E41A1C", "Local constant" = "#377EB8", "Local linear" = "#4DAF4A")) +
-  scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "twodash", "Local constant" = "dashed", "Local linear" = "dotted")) +
+  geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25) +
+  geom_line(data = visout_cwave, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
+  scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "#E41A1C", "Our monotone" = "#377EB8", "Local constant" = "#4DAF4A", "Local linear" = "#e3e30b")) +
+  scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "twodash", "Our monotone" = "twodash", "Local constant" = "dashed", "Local linear" = "dotted")) +
   theme_bw() + xlab(NULL) + ylab(NULL) +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
 
@@ -66,18 +70,22 @@ fit_us  <- result_spherical_complex$history_fit[[idx]]$fit_us
 
 visout_csphe <- data.frame(type = c(rep("Local constant", length(as.numeric(t(fit_lc$eval)))),
                                     rep("Local linear", length(as.numeric(t(fit_ll$eval)))),
-                                    rep("Our isotropic", length(fit_us$eval))),
+                                    rep("Our isotropic", length(fit_us$eval)),
+                                    rep("Our monotone", length(fit_us$eval))),
                            x = c(as.numeric(t(fit_lc$eval)),
                                  as.numeric(t(fit_ll$eval)),
+                                 fit_us$eval,
                                  fit_us$eval),
-                           y = c(fit_lc$mean, fit_ll$mean, fit_us$yhat))
+                           y = c(fit_lc$mean, fit_ll$mean, rep(NA, length(fit_us$eval)), fit_us$yhat))
+
+visout_csphe$type <- factor(visout_csphe$type, levels = c("Our isotropic", "Our monotone", "Local constant", "Local linear"))
 
 p2 <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
   geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout_csphe, aes(x = x, y = y, col = type, lty = type), lwd = 1.2) +
-  scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "#E41A1C", "Local constant" = "#377EB8", "Local linear" = "#4DAF4A")) +
-  scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "twodash", "Local constant" = "dashed", "Local linear" = "dotted")) +
+  geom_line(data = visout_csphe, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
+  scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "#E41A1C", "Our monotone" = "#377EB8", "Local constant" = "#4DAF4A", "Local linear" = "#e3e30b")) +
+  scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "twodash", "Our monotone" = "twodash", "Local constant" = "dashed", "Local linear" = "dotted")) +
   theme_bw() + xlab(NULL) + ylab(NULL) +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
 

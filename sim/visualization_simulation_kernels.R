@@ -59,10 +59,12 @@ visout_cwave <- data.frame(type = c(rep("Uniform", length(bestout_uniform_cwave$
                                  bestout_epan_cwave$yhat,
                                  bestout_gaussian_cwave$yhat))
 
+visout_cwave$type <- factor(visout_cwave$type, levels = c("Gaussian", "Epanechnikov", "Uniform"))
+
 p1 <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
-  geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout_cwave, aes(x = x, y = y, col = type, lty = type), lwd = 1.2) +
+  geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25) +
+  geom_line(data = visout_cwave, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   scale_color_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "#E41A1C", "Epanechnikov" = "#377EB8", "Uniform" = "#4DAF4A")) +
   scale_linetype_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "twodash", "Epanechnikov" = "dashed", "Uniform" = "dotted")) +
@@ -114,10 +116,12 @@ visout_csphe <- data.frame(type = c(rep("Uniform", length(bestout_uniform_csphe$
                                  bestout_epan_csphe$yhat,
                                  bestout_gaussian_csphe$yhat))
 
+visout_csphe$type <- factor(visout_csphe$type, levels = c("Gaussian", "Epanechnikov", "Uniform"))
+
 p2 <- ggplot() +
   geom_point(data = data.frame(x = x, y = y_err), aes(x = x, y = y), color = "gray75") +
-  geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25, alpha = 0.75) +
-  geom_line(data = visout_csphe, aes(x = x, y = y, col = type, lty = type), lwd = 1.2) +
+  geom_line(data = data.frame(x = x, y = y), aes(x = x, y = y), color = "black", lwd = 1.25) +
+  geom_line(data = visout_csphe, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   scale_color_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "#E41A1C", "Epanechnikov" = "#377EB8", "Uniform" = "#4DAF4A")) +
   scale_linetype_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "twodash", "Epanechnikov" = "dashed", "Uniform" = "dotted")) +

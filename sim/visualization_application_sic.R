@@ -43,14 +43,14 @@ p1          <- ggplot() +
 
 load(file = "out/appout_sic100_gaussian.RData")
 
-visdat <- data.frame(type = c(rep("Our isotropic", length(bestout$eval)),
+visdat <- data.frame(type = c(rep("Our isotropic", length(bestout_iso$eval)),
                               rep("Our monotone", length(bestout_mon$eval))),
-                     x = c(bestout$eval / output_sic100$xmax * output_sic100$xmax0,
+                     x = c(bestout_iso$eval / output_sic100$xmax * output_sic100$xmax0,
                            bestout_mon$eval / output_sic100$xmax * output_sic100$xmax0),
-                     y = c(bestout$yhat * output_sic100$vhat,
-                           bestout_mon$yhat * output_sic100$vhat))
+                     y = c(bestout_iso$yhat * vhat_iso,
+                           bestout_mon$yhat * vhat_mon))
 p3 <- ggplot() +
-  geom_point(data = data.frame(x = output_sic100$r / output_sic100$xmax * output_sic100$xmax0, y = output_sic100$chat * output_sic100$vhat), aes(x = x, y = y), color = "gray75") +
+  geom_point(data = data.frame(x = output_sic100$r / output_sic100$xmax * output_sic100$xmax0, y = output_sic100$chat), aes(x = x, y = y), color = "gray75") +
   geom_line(data = visdat, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
   geom_hline(yintercept = 0, linetype="solid", color = "black") +
   scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone"), values = c("Our isotropic" = "#E41A1C", "Our monotone" = "#4DAF4A")) +

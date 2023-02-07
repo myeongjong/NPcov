@@ -81,7 +81,7 @@ ncores        <- NULL
 ### isotropic estimator
 ###########################################################################
 
-ms            <- c(8, 9, 10)
+ms            <- c(5, 6, 7, 8)
 hs            <- seq(0.15, 0.2, by = 0.01)
 inputs        <- expand.grid(ms, hs) ; colnames(inputs) <- c("ms", "hs")
 inputs$taus   <- rep(0.1, nrow(inputs))
@@ -90,7 +90,7 @@ inputs$ns     <- inputs$ms * 10
 ptm_cv_iso    <- proc.time()
 cvout_iso     <- cv_pdnr(x = output_sic100$r, y = output_sic100$chat / output_sic100$vhat, hs = inputs$hs, ns = inputs$ns, ms = inputs$ms, taus = inputs$taus, expand = expand, eval = eval, k = k, kernel = kernel, shape = "general", method = method, dist_init = dist_init, min_iter = min_iter, max_iter = max_iter, tol = tol, check = check, ncores = ncores)
 ptm_cv_iso    <- proc.time() - ptm_cv_iso
-ptm_cv_iso # 24750.28
+ptm_cv_iso # 15515.80
 
 ptm_best_iso  <- proc.time()
 vhat          <- output_sic100$vhat
@@ -110,7 +110,7 @@ for(i in 1:100) {
   if(abs(vhat_old - vhat) < 0.005 * output_sic100$vhat) break
 }
 ptm_best_iso  <- proc.time() - ptm_best_iso
-i ; ptm_best_iso # 28305.59
+i ; ptm_best_iso # 2302.58
 
 vhat_iso      <- vhat
 
@@ -127,7 +127,7 @@ inputs$ns     <- inputs$ms * 10
 ptm_cv_mon    <- proc.time()
 cvout_mon     <- cv_pdnr(x = output_sic100$r, y = output_sic100$chat / output_sic100$vhat, hs = inputs$hs, ns = inputs$ns, ms = inputs$ms, taus = inputs$taus, expand = expand, eval = eval, k = k, kernel = kernel, shape = "monotone", method = method, dist_init = dist_init, min_iter = min_iter, max_iter = max_iter, tol = tol, check = check, ncores = ncores)
 ptm_cv_mon    <- proc.time() - ptm_cv_mon
-ptm_cv_mon # 268.34
+ptm_cv_mon # 283.28
 
 ptm_best_mon  <- proc.time()
 vhat          <- output_sic100$vhat
@@ -147,7 +147,7 @@ for(i in 1:100) {
   if(abs(vhat_old - vhat) < 0.005 * output_sic100$vhat) break
 }
 ptm_best_mon  <- proc.time() - ptm_best_mon
-i ; ptm_best_mon # 33.19
+i ; ptm_best_mon # 58.56
 
 vhat_mon      <- vhat
 

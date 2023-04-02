@@ -51,7 +51,7 @@ p1 <- ggplot() +
   geom_line(data = visout_cwave, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
   scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "#E41A1C", "Our monotone" = "#4DAF4A", "Local constant" = "#377EB8", "Local linear" = "#e0e002")) +
   scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "twodash", "Our monotone" = "twodash", "Local constant" = "dashed", "Local linear" = "dotted")) +
-  theme_bw() + xlab(NULL) + ylab(NULL) +
+  theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
 
 rm(idx, x, y, y_err, fit_lc, fit_ll, fit_us)
@@ -86,7 +86,7 @@ p2 <- ggplot() +
   geom_line(data = visout_csphe, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.75) +
   scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "#E41A1C", "Our monotone" = "#4DAF4A", "Local constant" = "#377EB8", "Local linear" = "#e0e002")) +
   scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Local constant" = "Local constant", "Local linear" = "Local linear"), values = c("Our isotropic" = "twodash", "Our monotone" = "twodash", "Local constant" = "dashed", "Local linear" = "dotted")) +
-  theme_bw() + xlab(NULL) + ylab(NULL) +
+  theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
 
 tmp       <- ggplot_gtable(ggplot_build(p1))

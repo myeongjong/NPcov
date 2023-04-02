@@ -68,7 +68,7 @@ p1 <- ggplot() +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   scale_color_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "#E41A1C", "Epanechnikov" = "#4DAF4A", "Uniform" = "#377EB8")) +
   scale_linetype_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "twodash", "Epanechnikov" = "dashed", "Uniform" = "dotted")) +
-  theme_bw() + xlab(NULL) + ylab(NULL) +
+  theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
 
 ###########################################################################
@@ -125,7 +125,7 @@ p2 <- ggplot() +
   scale_x_continuous(expand = c(0,0), limits = c(0, 10.25)) +
   scale_color_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "#E41A1C", "Epanechnikov" = "#377EB8", "Uniform" = "#4DAF4A")) +
   scale_linetype_manual(name = NULL, labels = c("Gaussian" = "Gaussian", "Epanechnikov" = "Epanechnikov", "Uniform" = "Uniform"), values = c("Gaussian" = "twodash", "Epanechnikov" = "dashed", "Uniform" = "dotted")) +
-  theme_bw() + xlab(NULL) + ylab(NULL) +
+  theme_bw() + xlab("x") + ylab("y") +
   theme(legend.direction = 'horizontal', legend.key.width = unit(2, "cm"))
 
 ###########################################################################

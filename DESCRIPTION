@@ -1,9 +1,9 @@
 Package: NPcov
 Type: Package
-Title: Research Package for positive-definite nonparametric regression with application to covariance function estimation
+Title: Positive definite nonparametric regression using an evolutionary algorithm with application to covariance function estimation
 Version: 0.1.0
 Authors@R: person(given = "Myeongjong", family = "Kang", role = c("aut", "cre"), email = "kmj.stat@gmail.com")
-Description: This is so far a private research R package for implementing a positive-definite nonparametric regression method
+Description: Package implements a positive definite nonparametric regression approach using the iterated density estimation evolutionary algorithm. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -22,3 +22,5 @@ Imports:
     RandomFieldsUtils,
     Rcpp,
     RcppNumerical
+Suggests: 
+    npsp

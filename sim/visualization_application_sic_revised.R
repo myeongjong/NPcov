@@ -59,7 +59,7 @@ p3 <- ggplot() +
   geom_line(data = visdat, aes(x = x, y = y, col = type, lty = type), lwd = 1.2, alpha = 0.9) +
   geom_hline(yintercept = 0, linetype="solid", color = "black") +
   scale_color_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Shapiro-Botha" = "Shapiro-Botha"), values = c("Our isotropic" = "#E41A1C", "Our monotone" = "#4DAF4A", "Shapiro-Botha" = "#377EB8")) +
-  scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Shapiro-Botha" = "Shapiro-Botha"), values = c("Our isotropic" = "twodash", "Our monotone" = "twodash", "Shapiro-Botha" = "dashed")) +
+  scale_linetype_manual(name = NULL, labels = c("Our isotropic" = "Our isotropic", "Our monotone" = "Our monotone", "Shapiro-Botha" = "Shapiro-Botha"), values = c("Our isotropic" = "twodash", "Our monotone" = "twodash", "Shapiro-Botha" = "dotted")) +
   # scale_y_continuous(labels = formatting) +
   theme_bw() + xlab("distance") + ylab("covariance") +
   coord_cartesian(ylim = c(-0.25, 1.05) * output_sic100$vhat) +

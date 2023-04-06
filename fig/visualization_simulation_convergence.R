@@ -62,7 +62,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_wave_simple.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_convergence_wave_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 2: complex wave
@@ -113,7 +113,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_wave_complex.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_convergence_wave_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 3: simple spherical case
@@ -164,7 +164,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_sphe_simple.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_convergence_sphe_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 4: complex spherical case
@@ -215,7 +215,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_sphe_complex.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_convergence_sphe_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 5: simple exponential case
@@ -266,7 +266,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_expo_simple.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_convergence_expo_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 6: complex exponential case
@@ -317,4 +317,4 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_expo_complex.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_convergence_expo_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)

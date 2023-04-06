@@ -99,5 +99,5 @@ p.merge    <- grid.arrange(mylegend, arrangeGrob(p1 + theme(legend.position = "n
                                                  p2 + theme(legend.position = "none"),
                                                  ncol = 2), nrow = 2, heights = c(1, 10))
 
-ggplot2::ggsave("img/simulation_regression.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/simulation_regression.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 

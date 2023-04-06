@@ -67,4 +67,4 @@ p3 <- ggplot() +
   theme(legend.direction = 'horizontal', legend.key.width = unit(1.5, "cm"), legend.position = "top", legend.justification = "right")
 
 p.merge       <- grid.arrange(p1, p3, nrow = 1)
-ggplot2::ggsave("img/application_sic100.pdf", p.merge, width = 7.5, height = 3.5)
+ggplot2::ggsave("img/application_sic100.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)

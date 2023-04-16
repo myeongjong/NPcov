@@ -3,6 +3,6 @@
 ^LICENSE\.md$
 ^README.Rmd
 ^README-.*\.png$
-^fig$
-^out$
-^img$
+^output$
+^rdata$
+^plot$

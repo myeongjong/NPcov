@@ -25,7 +25,7 @@ y           <- ftn_wave(x, 0, 1, 1)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_wave_simple.RData")
+load(file = "rdata/simout_gaussian_wave_simple.RData")
 
 #####
 
@@ -62,7 +62,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_wave_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_convergence_wave_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 2: complex wave
@@ -76,7 +76,7 @@ y           <- ftn_wave(x, 0, 1, 0.5)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_wave_complex.RData")
+load(file = "rdata/simout_gaussian_wave_complex.RData")
 
 #####
 
@@ -113,7 +113,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_wave_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_convergence_wave_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 3: simple spherical case
@@ -127,7 +127,7 @@ y           <- ftn_spherical(x, 0, 1, 1)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_sphe_simple.RData")
+load(file = "rdata/simout_gaussian_sphe_simple.RData")
 
 #####
 
@@ -164,7 +164,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_sphe_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_convergence_sphe_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 4: complex spherical case
@@ -178,7 +178,7 @@ y           <- ftn_spherical(x, 0, 0.8, 2)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_sphe_complex.RData")
+load(file = "rdata/simout_gaussian_sphe_complex.RData")
 
 #####
 
@@ -215,7 +215,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_sphe_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_convergence_sphe_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 5: simple exponential case
@@ -229,7 +229,7 @@ y           <- ftn_exponential(x, 0, 1, 1)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_expo_simple.RData")
+load(file = "rdata/simout_gaussian_expo_simple.RData")
 
 #####
 
@@ -266,7 +266,7 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_expo_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_convergence_expo_simple.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
 
 ###########################################################################
 ### simulation 6: complex exponential case
@@ -280,7 +280,7 @@ y           <- ftn_exponential(x, 0, 1, 4)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_expo_complex.RData")
+load(file = "rdata/simout_gaussian_expo_complex.RData")
 
 #####
 
@@ -317,4 +317,4 @@ p3          <- ggplot() +
 
 p.merge     <- grid.arrange(p1, p2, p3, nrow = 1)
 
-ggplot2::ggsave("img/simulation_convergence_expo_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_convergence_expo_complex.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)

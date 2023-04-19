@@ -132,4 +132,4 @@ ptm2 <- proc.time() - ptm2
 ptm2 # 2619.30
 colMeans(result_spherical_complex$output)
 
-save(ptm1, ptm2, result_wave_complex, result_spherical_complex, file = "out/simout_regression_with_white_noise_errors.RData")
+save(ptm1, ptm2, result_wave_complex, result_spherical_complex, file = "rdata/simout_regression_with_white_noise_errors.RData")

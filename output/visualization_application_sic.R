@@ -34,7 +34,7 @@ p1          <- ggplot() +
 ###
 ###########################################################################
 
-load(file = "out/appout_sic100_gaussian.RData")
+load(file = "rdata/appout_sic100_gaussian.RData")
 
 visdat <- data.frame(type = c(rep("Our isotropic", length(bestout_iso$eval)),
                               rep("Our monotone", length(bestout_mon$eval)),
@@ -67,4 +67,4 @@ p3 <- ggplot() +
   theme(legend.direction = 'horizontal', legend.key.width = unit(1.5, "cm"), legend.position = "top", legend.justification = "right")
 
 p.merge       <- grid.arrange(p1, p3, nrow = 1)
-ggplot2::ggsave("img/application_sic100.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/application_sic100.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)

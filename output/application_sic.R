@@ -160,5 +160,5 @@ abline(h = 0, lwd = 2, col = "black", lty = "dashed")
 lines(bestout_iso$eval, bestout_iso$yhat * vhat_iso, lwd = 2, col = "red")
 lines(bestout_mon$eval, bestout_mon$yhat * vhat_mon, lwd = 2, col = "blue")
 
-save(sic.100, sic.borders, output_sic100, cvout_iso, ptm_cv_iso, bestout_iso, vhat_iso, ptm_best_iso, cvout_mon, ptm_cv_mon, bestout_mon, vhat_mon, ptm_best_mon, file = "out/appout_sic100_gaussian.RData")
+save(sic.100, sic.borders, output_sic100, cvout_iso, ptm_cv_iso, bestout_iso, vhat_iso, ptm_best_iso, cvout_mon, ptm_cv_mon, bestout_mon, vhat_mon, ptm_best_mon, file = "rdata/appout_sic100_gaussian.RData")
 

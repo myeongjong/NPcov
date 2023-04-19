@@ -19,7 +19,7 @@ library(grid)
 ###########################################################################
 
 rm(list = ls())
-load(file = "out/simout_covariance_function_estimation.RData")
+load(file = "rdata/simout_covariance_function_estimation.RData")
 
 ###########################################################################
 ###
@@ -82,7 +82,7 @@ p4            <- ggplot() +
 ###########################################################################
 
 p.merge.1     <- grid.arrange(p1, p2, nrow = 1, widths = c(2.75, 4.75))
-ggplot2::ggsave("img/simulation_covariance_wave.pdf", p.merge.1, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_covariance_wave.pdf", p.merge.1, device = cairo_pdf, width = 7.5, height = 3.5)
 
 p.merge.2     <- grid.arrange(p3, p4, nrow = 1, widths = c(2.75, 4.75))
-ggplot2::ggsave("img/simulation_covariance_expo.pdf", p.merge.2, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_covariance_expo.pdf", p.merge.2, device = cairo_pdf, width = 7.5, height = 3.5)

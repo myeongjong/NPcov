@@ -55,7 +55,7 @@ abline(h = 0, lwd = 2, col = "gray", lty = "dashed")
 lines(x, y, lwd = 2, col = "black")
 lines(bestout$eval, bestout$yhat, lwd = 2, col = "red")
 
-save(cvout, ptm_cv, bestout, ptm_best, file = "out/simout_epan_wave_simple.RData")
+save(cvout, ptm_cv, bestout, ptm_best, file = "rdata/simout_epan_wave_simple.RData")
 
 ###########################################################################
 ### simulation 2: complex wave
@@ -103,7 +103,7 @@ abline(h = 0, lwd = 2, col = "gray", lty = "dashed")
 lines(x, y, lwd = 2, col = "black")
 lines(bestout$eval, bestout$yhat, lwd = 2, col = "red")
 
-save(cvout, ptm_cv, bestout, ptm_best, file = "out/simout_epan_wave_complex.RData")
+save(cvout, ptm_cv, bestout, ptm_best, file = "rdata/simout_epan_wave_complex.RData")
 
 ###########################################################################
 ### simulation 3: simple spherical case
@@ -151,7 +151,7 @@ abline(h = 0, lwd = 2, col = "gray", lty = "dashed")
 lines(x, y, lwd = 2, col = "black")
 lines(bestout$eval, bestout$yhat, lwd = 2, col = "red")
 
-save(cvout, ptm_cv, bestout, ptm_best, file = "out/simout_epan_sphe_simple.RData")
+save(cvout, ptm_cv, bestout, ptm_best, file = "rdata/simout_epan_sphe_simple.RData")
 
 ###########################################################################
 ### simulation 4: complex spherical case
@@ -199,7 +199,7 @@ abline(h = 0, lwd = 2, col = "gray", lty = "dashed")
 lines(x, y, lwd = 2, col = "black")
 lines(bestout$eval, bestout$yhat, lwd = 2, col = "red")
 
-save(cvout, ptm_cv, bestout, ptm_best, file = "out/simout_epan_sphe_complex.RData")
+save(cvout, ptm_cv, bestout, ptm_best, file = "rdata/simout_epan_sphe_complex.RData")
 
 ###########################################################################
 ### simulation 5: simple exponential case
@@ -247,7 +247,7 @@ abline(h = 0, lwd = 2, col = "gray", lty = "dashed")
 lines(x, y, lwd = 2, col = "black")
 lines(bestout$eval, bestout$yhat, lwd = 2, col = "red")
 
-save(cvout, ptm_cv, bestout, ptm_best, file = "out/simout_epan_expo_simple.RData")
+save(cvout, ptm_cv, bestout, ptm_best, file = "rdata/simout_epan_expo_simple.RData")
 
 ###########################################################################
 ### simulation 6: complex exponential case
@@ -295,4 +295,4 @@ abline(h = 0, lwd = 2, col = "gray", lty = "dashed")
 lines(x, y, lwd = 2, col = "black")
 lines(bestout$eval, bestout$yhat, lwd = 2, col = "red")
 
-save(cvout, ptm_cv, bestout, ptm_best, file = "out/simout_epan_expo_complex.RData")
+save(cvout, ptm_cv, bestout, ptm_best, file = "rdata/simout_epan_expo_complex.RData")

@@ -100,7 +100,7 @@ lines(sbout_swave$svm$fit$u, sbout_swave$svm$sill - sbout_swave$svm$fit$fitted.s
 lines(sbout_swave$svm_corr$fit$u, sbout_swave$svm_corr$sill - sbout_swave$svm_corr$fit$fitted.sv, type = "o", col = "chartreuse2", lwd = 2)
 lines(fit_us_swave$eval, fit_us_swave$yhat * vhat_swave, col = "firebrick2", lwd = 2)
 
-# save(simgrf_swave, output_swave, fit_us_swave, vhat_swave, input_swave, file = "out/simout_covariance_function_estimation.RData")
+# save(simgrf_swave, output_swave, fit_us_swave, vhat_swave, input_swave, file = "rdata/simout_covariance_function_estimation.RData")
 
 ###########################################################################
 ###
@@ -162,4 +162,4 @@ lines(sbout_sexpo$svm$fit$u, sbout_sexpo$svm$sill - sbout_sexpo$svm$fit$fitted.s
 lines(sbout_sexpo$svm_corr$fit$u, sbout_sexpo$svm_corr$sill - sbout_sexpo$svm_corr$fit$fitted.sv, type = "o", col = "chartreuse2", lwd = 2)
 lines(fit_us_sexpo$eval, fit_us_sexpo$yhat * vhat_sexpo, col = "firebrick2", lwd = 2)
 
-save(simgrf_swave, output_swave, fit_us_swave, vhat_swave, input_swave, sbout_swave, simgrf_sexpo, output_sexpo, fit_us_sexpo, vhat_sexpo, input_sexpo, sbout_sexpo, file = "out/simout_covariance_function_estimation.RData")
+save(simgrf_swave, output_swave, fit_us_swave, vhat_swave, input_swave, sbout_swave, simgrf_sexpo, output_sexpo, fit_us_sexpo, vhat_sexpo, input_sexpo, sbout_sexpo, file = "rdata/simout_covariance_function_estimation.RData")

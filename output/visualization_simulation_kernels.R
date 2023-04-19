@@ -25,15 +25,15 @@ y           <- ftn_wave(x, 0, 1, 0.5)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_wave_complex.RData")
+load(file = "rdata/simout_gaussian_wave_complex.RData")
 cvout_gaussian_cwave <- cvout
 bestout_gaussian_cwave <- bestout
 
-load(file = "out/simout_epan_wave_complex.RData")
+load(file = "rdata/simout_epan_wave_complex.RData")
 cvout_epan_cwave <- cvout
 bestout_epan_cwave <- bestout
 
-load(file = "out/simout_uniform_wave_complex.RData")
+load(file = "rdata/simout_uniform_wave_complex.RData")
 cvout_uniform_cwave <- cvout
 bestout_uniform_cwave <- bestout
 
@@ -82,15 +82,15 @@ y           <- ftn_spherical(x, 0, 0.8, 2)
 y           <- 1 - y
 y_err       <- y + rnorm(length(y), 0, 0.2)
 
-load(file = "out/simout_gaussian_sphe_complex.RData")
+load(file = "rdata/simout_gaussian_sphe_complex.RData")
 cvout_gaussian_csphe <- cvout
 bestout_gaussian_csphe <- bestout
 
-load(file = "out/simout_epan_sphe_complex.RData")
+load(file = "rdata/simout_epan_sphe_complex.RData")
 cvout_epan_csphe <- cvout
 bestout_epan_csphe <- bestout
 
-load(file = "out/simout_uniform_sphe_complex.RData")
+load(file = "rdata/simout_uniform_sphe_complex.RData")
 cvout_uniform_csphe <- cvout
 bestout_uniform_csphe <- bestout
 
@@ -142,4 +142,4 @@ p.merge    <- grid.arrange(mylegend, arrangeGrob(p1 + theme(legend.position = "n
                                                  p2 + theme(legend.position = "none"),
                                                  ncol = 2), nrow = 2, heights = c(1, 10))
 
-ggplot2::ggsave("img/simulation_kernels.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
+ggplot2::ggsave("plot/simulation_kernels.pdf", p.merge, device = cairo_pdf, width = 7.5, height = 3.5)
